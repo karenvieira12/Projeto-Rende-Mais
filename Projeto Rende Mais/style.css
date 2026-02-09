@@ -1,0 +1,1023 @@
+/* 1. CONFIGURAÇÕES GLOBAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte profissional e legível */
+}
+
+/* 2. VARIÁVEIS DE CORES (Identidade Visual Rende Mais+) */
+:root {
+    --laranja: #FF6600; /* Cor principal de ação */
+    --azul-claro: #00A3A3; /* Cor secundária da logo */
+    --azul-escuro: #003366; /* Cor para contrastes e fundos */
+    --branco: #ffffff;
+    --preto-suave: #333333;
+}
+
+html {
+    scroll-behavior: smooth; /* Deixa a navegação entre as seções suave */
+}
+
+body {
+    line-height: 1.6;
+    color: var(--preto-suave);
+    background-color: var(--branco);
+}
+
+/* HEADER - ESPAÇAMENTO E LOGO */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 15px 0;
+    z-index: 1000;
+    border-bottom: 1px solid #eee; /* Linha sutil igual ao exemplo */
+}
+/* Esconde os elementos do celular por padrão (PC) */
+.menu-mobile-icon, 
+.menu-header {
+    display: none !important;
+}
+
+
+.container-nav {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3%;
+}
+
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-nav {
+    height: 45px; /* Tamanho discreto e elegante */
+    width: auto;
+}
+
+.brand-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.brand-name small {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #666;
+}
+
+/* Links do Menu */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px; /* Espaço generoso entre os links */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #FF6600; /* Laranja da sua marca ao passar o mouse */
+}
+
+/* HERO - CONFIGURAÇÃO BASE */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+    position: relative;
+    overflow: hidden;
+    /* Fazemos o degradê terminar exatamente na cor do Sobre */
+    background: linear-gradient(180deg, #ffffff 50%, #fdf5f0 100%);
+}
+
+/* CAMADA DE FUNDO (A CORTINA) */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+    position: relative;
+    overflow: hidden;
+    
+    /* O segredo é colocar o degradê PRIMEIRO, e depois a sua imagem */
+    background: linear-gradient(to bottom, 
+                rgba(255, 255, 255, 0.2) 0%, /* Diminuímos o branco inicial */
+                rgba(253, 245, 240, 0.8) 70%, /* Começa a transição para o bege */
+                #fdf5f0 100%), 
+                url('img/fundo-rende-mais.jpeg') no-repeat center center;
+    background-size: cover;
+}
+
+
+/* CONTEÚDO (O QUE FICA NA FRENTE) */
+.hero-content h1 {
+    color: #003366; /* Azul escuro da marca para autoridade */
+    font-size: 4.5rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    text-shadow: none; /* Removemos a sombra preta para o design ficar mais limpo */
+}
+
+/* Criando o destaque em Laranja */
+.hero-content h1 span {
+    color: #FF6600; /* Laranja vibrante para a palavra que você quer destacar */
+}
+
+.hero-content p {
+    color: #444444; /* Cinza escuro para leitura confortável no fundo claro */
+    font-size: 1.4rem;
+    max-width: 650px;
+    margin-bottom: 45px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400; /* Aumentei um pouco o peso para não sumir no fundo */
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+}
+.logo-hero {
+    max-width: 200px; /* Diminui o tamanho que estava "enorme" */
+    height: auto;
+    margin-bottom: 20px;
+}
+/* DESTAQUE NO TROCADILHO */
+.highlight {
+    color: #FF6600; /* Laranja da logo para o trocadilho */
+    font-style: italic;
+    font-weight: 900;
+}
+/* O BOTÃO (ESTILO PREMIUM) */
+.btn-cta {
+    background: linear-gradient(135deg, #FF6600 0%, #ff8533 100%); /* Degradê sofisticado */
+    color: #ffffff;
+    padding: 20px 45px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 25px rgba(255, 102, 0, 0.4);
+    border: 2px solid transparent;
+}
+
+.btn-cta:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(255, 102, 0, 0.5);
+    background: linear-gradient(135deg, #ff8533 0%, #FF6600 100%);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-cta i {
+    font-size: 1.4rem;
+}
+/* ESTILIZAÇÃO DA SEÇÃO SOBRE */
+.sobre-section {
+    background-color: #fdf5f0 !important; /* Cor bege base */
+    padding: 100px 8% !important;
+    margin: 0 !important;
+    position: relative;
+    
+    /* O degradê que "derrete" o bege para o branco dos Diferenciais */
+    background: linear-gradient(to bottom, #fdf5f0 80%, #ffffff 100%) !important;
+}
+.container-sobre {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px; /* Espaço entre a foto e o texto */
+}
+
+.sobre-img {
+    flex: 1;
+}
+
+.sobre-img img {
+    width: 100%;
+    border-radius: 20px; /* Bordas arredondadas modernas */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.sobre-txt {
+    flex: 1;
+}
+
+.sobre-txt h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #FF6600; /* Laranja da sua marca */
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.sobre-txt h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    color: #003366; /* Azul da sua marca */
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.sobre-txt p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+/* 4. SEÇÃO DIFERENCIAIS (CORRIGIDA) */
+
+.intro-secao {
+    max-width: 700px;
+    margin: 20px auto 0; /* Centraliza e dá espaço para os cards */
+    color: #666;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    
+}
+.diferenciais {
+    background-color: #ffffff !important; /* Branco puro */
+    padding: 60px 5% 80px !important;
+    margin: 0 !important;
+    border: none !important;
+}
+.header-secao {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 0 5%;
+}
+
+/* O texto menor acima do título */
+.header-secao span {
+    display: block;
+    color: #FF6600; /* Laranja vibrante da marca */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px; /* Espaçamento entre letras para dar elegância */
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+/* O título principal da seção */
+.header-secao h2 {
+    color: #003366; /* Azul marinho para passar confiança */
+    font-family: 'Playfair Display', serif; /* Fonte clássica e forte */
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.2;
+    position: relative;
+    display: inline-block;
+}
+
+/* Uma linha discreta abaixo do título para finalizar o design */
+.header-secao h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #FF6600;
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.grid-diferenciais {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.card-diferencial {
+    padding: 40px 25px;
+    /* O Branco Puro aqui é obrigatório para dar contraste */
+    background-color: #ffffff; 
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.4s ease-in-out !important;
+    
+    /* Sombra levemente mais marcada para aparecer no fundo creme */
+    box-shadow: 0 10px 30px rgba(0, 51, 102, 0.1); 
+    border: 1px solid rgba(0, 51, 102, 0.05); /* Uma bordinha quase invisível só para definir o card */
+    background-color: #ffffff; 
+    /* Aumentamos a intensidade da sombra de 0.1 para 0.15 */
+    box-shadow: 0 15px 35px rgba(0, 51, 102, 0.15); 
+    border: none; /* Tire a borda para a sombra trabalhar sozinha */
+}
+
+
+.card-diferencial:hover {
+    transform: translateY(-12px) !important;
+    /* No hover, a sombra aumenta e o card "brilha" */
+    box-shadow: 0 20px 45px rgba(255, 102, 0, 0.15); 
+}
+.card-diferencial:hover .icon8 {
+    transform: scale(1.1) rotate(5deg) !important;
+}
+
+/* Ajuste fino dos ícones Icons8 */
+.icon8 {
+    width: 65px; /* Tamanho discreto e sofisticado */
+    height: 65px;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.4s ease !important;
+}
+
+.card-diferencial h4 {
+    color: #003366;
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.card-diferencial p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+}
+/* --- SEÇÃO ESPAÇO (GERAL) --- */
+/* --- SEÇÃO ESPAÇO (CONFIGURAÇÃO ISOLADA) --- */
+.espaco {
+    background-color: #fdf5f0 !important; /* Cor exata do Sobre Nós */
+    background-image: linear-gradient(to bottom, #ffffff 0%, #fdf5f0 150px) !important;
+    background-repeat: no-repeat;
+    padding: 0 8% 80px !important;
+    margin: 0 !important;
+    position: relative;
+}
+
+/* O segredo: esse padding só afeta o título DENTRO da seção espaço */
+.espaco .header-secao {
+    padding-top: 80px !important; 
+    margin-bottom: 40px;
+    background: transparent !important; /* Garante que não tenha fundo sólido matando o degradê */
+}
+
+/* Mantém os títulos bonitos */
+.espaco .header-secao h2 {
+    color: #003366; 
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+}
+
+.espaco .header-secao h2::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 6px;
+    background: linear-gradient(90deg, #FF6600 0%, #003366 100%);
+    margin: 15px auto 0;
+    border-radius: 50px;
+}
+/* --- EFEITO MASONRY (MOSAICO) --- */
+.galeria-espaco {
+    column-count: 3; /* No PC divide em 3 colunas */
+    column-gap: 20px; /* Espaço entre as colunas */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.item-galeria {
+    display: inline-block; /* Mantém a foto íntegra */
+    width: 100%;
+    margin-bottom: 20px; /* Espaço entre as fotos na vertical */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #f9f9f9;
+}
+
+.item-galeria img {
+    width: 100%; /* Ajusta a largura à coluna */
+    height: auto; /* Mantém a proporção real sem esticar */
+    display: block;
+    transition: 0.5s ease;
+}
+
+/* Efeito de interação chique */
+.item-galeria:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 51, 102, 0.1);
+}
+
+.item-galeria:hover img {
+    transform: scale(1.03);
+}
+/* --- SEÇÃO PLANOS (COMPLETO) --- */
+/* --- SEÇÃO PLANOS (INTERCALADO EM BRANCO) --- */
+.planos {
+    background-color: #ffffff !important; 
+    padding: 80px 8% !important; /* Ajustado para dar respiro ao título */
+    text-align: center;
+    position: relative;
+}
+
+/* Criando o degradê que vem do bege da galeria para o branco dos planos */
+.planos::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to bottom, #fdf5f0, #ffffff); 
+    z-index: 1;
+}
+/* NOVO: Ajuste para o título não ser cortado pelo degradê ou topo */
+.planos .header-planos {
+    position: relative;
+    z-index: 2;
+    padding-top: 60px !important; /* Espaço extra para o texto respirar */
+    margin-bottom: 50px;
+}
+/* Ajuste da frase de destaque acima do título dos planos */
+.planos .header-planos span {
+    display: block; /* Garante que fique em uma linha própria */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #FF6600; /* Laranja da Rende Mais+ */
+    text-transform: uppercase; /* Deixa em letras maiúsculas para dar autoridade */
+    letter-spacing: 2px; /* Espaçamento entre letras para ficar chique */
+    margin-bottom: 10px;
+}
+
+/* Garante que o título principal abaixo dele também respire */
+.planos .header-planos h2 {
+    margin-top: 6px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 1000;
+    color: #003366;
+}
+
+.grid-planos {
+    position: relative;
+    z-index: 2; 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+    gap: 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+/* Ajuste nos cards para brilharem no fundo branco */
+/* Ajuste nos cards para brilharem no fundo branco */
+.card-plano {
+    background: #fdfaf5 !important; 
+    padding: 40px 25px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0, 51, 102, 0.1) !important;
+    border: 1px solid rgba(0, 51, 102, 0.05);
+    transition: all 0.4s ease;
+}
+.card-plano:hover {
+    background: #ffffff !important;
+    transform: translateY(-12px);
+    box-shadow: 0 25px 50px rgba(255, 102, 0, 0.2) !important;
+}
+
+/* DESTAQUE DO PLANO ANUAL (R$ 280,00) */
+.card-plano.destaque {
+    border: 3px solid #FF6600 !important; 
+    background-color: #fdf1ea !important; 
+}
+
+.selo-destaque {
+    background: #FF6600;
+    color: #ffffff;
+    padding: 6px 20px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+}
+
+/* TEXTOS DOS CARDS */
+.card-plano h3 {
+    color: #003366; 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.preco {
+    font-size: 2.3rem;
+    font-weight: 900;
+    color: #003366;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.preco span {
+    font-size: 1rem;
+    color: #777;
+    font-weight: 400;
+}
+
+.legenda-plano {
+    color: #FF6600;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 10px 0 25px;
+}
+
+/* LISTA DE BENEFÍCIOS */
+.card-plano ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 35px 0;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.card-plano li {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-plano li i {
+    color: #FF6600;
+}
+
+/* INFO DA DIÁRIA E TURNOS */
+.planos-extras {
+    margin-top: 60px;
+    font-family: 'Montserrat', sans-serif;
+    background: #fdf8f1;
+    padding: 20px 40px;
+    border-radius: 50px;
+    display: inline-block;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.planos-extras strong {
+    color: #FF6600;
+}
+.footer {
+    background-color: #292929; /* Azul marinho da marca */
+    color: #ffffff;
+    padding: 60px 8% 20px;
+}
+
+.container-footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-info, .footer-contato {
+    flex: 1;
+    min-width: 280px;
+}
+
+.logo-footer {
+    max-width: 150px;
+    margin-bottom: 20px;
+}
+
+.footer h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #FF6600; /* Laranja de destaque */
+}
+
+.footer p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.redes-sociais a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.redes-sociais a:hover {
+    color: #FF6600;
+}
+
+.footer-bottom {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+/* --- SEÇÃO LOCALIZAÇÃO (LARANJA CLARINHO / BEGE) --- */
+.localizacao {
+    background-color: #fdf5f0 !important; /* Cor de fundo final (bege) */
+    
+    /* O degradê começa branco (planos) e "derrete" para o bege em 150px */
+    background-image: linear-gradient(to bottom, #ffffff 0%, #fdf5f0 150px) !important;
+    background-repeat: no-repeat;
+    
+    /* Tiramos o padding do topo para o degradê encostar nos Planos */
+    padding: 0 8% 80px !important; 
+    position: relative;
+}
+
+/* Ajuste no título para ele não ficar grudado no topo agora que tiramos o padding */
+.localizacao .header-secao {
+    padding-top: 80px !important; /* Espaço para o degradê branco não cortar as letras */
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.container-mapa {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: stretch;
+    background: #ffffff; /* Card branco para destacar no fundo bege */
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 51, 102, 0.08) !important;
+}
+
+.info-mapa {
+    padding: 50px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza os textos verticalmente no card */
+    text-align: left; /* Mantém o alinhamento à esquerda padrão de leitura */
+}
+
+.info-mapa p {
+    font-family: 'Montserrat', sans-serif !important; /* Aplica a fonte padrão do site */
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start; /* Alinha o ícone com o topo do texto */
+    gap: 15px;
+}
+
+.info-mapa i {
+    color: #FF6600; /* Laranja da marca nos ícones */
+    font-size: 1.2rem;
+    margin-top: 3px;
+}
+.btn-mapa {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px; /* Espaço entre o ícone de localização e o texto */
+    
+    padding: 16px 35px;
+    background: linear-gradient(135deg, #FF8C00 0%, #FF4500 100%) !important; /* Degradê laranja moderno */
+    color: #ffffff !important;
+    
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    text-transform: none;
+    
+    border-radius: 50px; /* Efeito de pílula */
+    box-shadow: 0 10px 20px rgba(255, 69, 0, 0.3) !important; /* Sombra colorida suave */
+    
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    margin-top: 15px;
+    align-self: flex-start; /* Mantém o botão alinhado à esquerda dentro do card */
+}
+
+/* Efeito ao passar o mouse (Hover) */
+.btn-mapa:hover {
+    transform: translateY(-4px) scale(1.02); /* Sobe levemente */
+    box-shadow: 0 15px 30px rgba(255, 69, 0, 0.4) !important;
+    filter: brightness(1.1);
+}
+
+/* Estilo do ícone dentro do botão */
+.btn-mapa i {
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.mapa-frame {
+    flex: 1.5;
+    height: 450px;
+}
+/* RESPONSIVIDADE PARA CELULAR */
+@media (max-width: 992px) {
+    .container-sobre {
+        flex-direction: column; /* Empilha foto e texto no celular */
+        text-align: center;
+        gap: 40px;
+    }
+}
+/* 5. RESPONSIVIDADE (Celulares) */
+/* --- TUDO PARA CELULAR (ATÉ 768PX) --- */
+@media (max-width: 768px) {
+    .menu-mobile-icon {
+        display: block !important;
+        margin-right: 5%;
+        font-size: 1.8rem;
+        color: #003366;
+        cursor: pointer;
+    }
+
+    .menu-header {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 25px;
+        background: #013972; 
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .menu-header span {
+        color: #f88629; /* Laranja da Rende Mais+ */
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+
+    .close-menu {
+        color: #FF6600;
+        font-size: 1.8rem;
+        cursor: pointer;
+    }
+
+    .nav-links {
+        display: flex !important;
+        flex-direction: column !important;
+        position: fixed !important;
+        top: 0 !important;
+        right: -100%; 
+        width: 80% !important; 
+        height: 100vh !important; 
+        background-color: #025fbd !important; /* Azul sólido para não ficar transparente */
+        padding: 0 !important;
+        transition: 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+        z-index: 10000;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-links.active {
+        right: 0 !important;
+    }
+
+    /* Links Brancos no Celular */
+    .nav-links li a {
+        display: block !important;
+        color: #ffffff !important; 
+        padding: 22px 30px !important;
+        font-size: 1.2rem !important;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .nav-links li a:hover {
+        background: rgba(255, 102, 0, 0.1); 
+        padding-left: 40px !important;
+        color: #FF6600 !important;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem !important;
+    }
+    .espaco {
+        padding: 40px 5% !important; /* Respiro nas laterais do site */
+    }
+
+    .galeria-espaco {
+        column-count: 1 !important; /* Força UMA foto por linha */
+        column-gap: 0 !important;
+    }
+    
+    .item-galeria {
+        margin-bottom: 25px !important; /* Espaço maior entre uma foto e outra */
+        border-radius: 12px !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important; /* Sombra mais leve no celular */
+    }
+
+    .item-galeria img {
+        border-radius: 12px !important;
+    }
+
+
+    .grid-planos {
+        grid-template-columns: 1fr; /* Um plano por linha no celular */
+        gap: 40px;
+    }
+    
+    .card-plano.destaque {
+        transform: scale(1); /* Remove o aumento no mobile para não quebrar o layout */
+    }
+
+    .header-secao h2 {
+        font-size: 2rem;
+    }
+    /* Diminui o título principal da seção */
+    .planos .header-secao h2 {
+        font-size: 2rem !important;
+        padding: 0 15px;
+    }
+
+    /* Ajusta o tamanho do preço para não quebrar o card */
+    .preco {
+        font-size: 2rem !important;
+    }
+
+    .preco span {
+        font-size: 0.85rem;
+    }
+
+    /* Melhora o espaçamento interno dos cards no mobile */
+    .card-plano {
+        padding: 30px 20px !important;
+    }
+
+    /* Deixa o texto dos benefícios mais legível */
+    .card-plano li {
+        font-size: 0.9rem !important;
+        margin-bottom: 10px;
+    }
+
+    /* Ajusta a caixa de informações extras (Turnos e Diária) */
+    .planos-extras {
+        width: 90%;
+        padding: 15px 20px !important;
+        font-size: 0.95rem !important;
+        border-radius: 20px !important;
+    }
+/* Ajusta o "NOSSO ESPAÇO" (o texto laranja de cima) */
+    .espaco .header-secao span {
+        font-size: 0.8rem !important;
+        letter-spacing: 1px !important;
+    }
+
+    /* Ajusta o título principal "Conheça a estrutura..." */
+    .espaco .header-secao h2 {
+        font-size: 1.8rem !important; /* Tamanho muito mais equilibrado para celular */
+        line-height: 1.2 !important;
+        margin-top: 5px !important;
+    }
+    
+    /* Diminui a barrinha laranja abaixo do título */
+    .espaco .header-secao h2::after {
+        width: 60px !important;
+        height: 4px !important;
+        margin-top: 10px !important;
+    }
+    .btn-cta {
+    display: inline-flex; /* Alinha ícone e texto perfeitamente */
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espaço entre o ícone e a palavra Contratar */
+    padding: 15px 30px;
+    background-color: #FF6600; /* Laranja da marca */
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.btn-cta i {
+    font-size: 1.2rem; /* Deixa o ícone do zap um pouco maior que o texto */
+}
+
+.btn-cta:hover {
+    background-color: #e65c00;
+    transform: scale(1.05);
+}
+.container-mapa {
+        flex-direction: column;
+    }
+    .info-mapa {
+        padding: 30px;
+    }
+    .mapa-frame {
+        width: 100%;
+        height: 300px;
+    }
+    .btn-mapa {
+        width: 100%; /* O botão ocupa a largura disponível, mas sem exagerar */
+        max-width: 280px; /* Limita o tamanho para não ficar gigante dos lados */
+        padding: 12px 20px; /* Reduz o "enchimento" interno do botão */
+        font-size: 0.9rem; /* Diminui um pouco a letra para caber melhor */
+        align-self: center; /* Garante que ele fique centralizado no telemóvel */
+    }
+}
+
+
+
+/* --- TUDO PARA COMPUTADOR (ACIMA DE 769PX) --- */
+@media (min-width: 769px) {
+    .menu-mobile-icon, .menu-header {
+        display: none !important; /* Limpa o visual do PC */
+    }
+
+    .container-nav {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 13px 8% !important;
+        max-width: 100% !important;
+    }
+
+    .nav-links {
+        display: flex !important;
+        position: static !important; /* Links voltam para a barra branca */
+        flex-direction: row !important;
+        background: transparent !important;
+        width: auto !important;
+        height: auto !important;
+        right: auto !important;
+        box-shadow: none !important;
+        gap: 45px !important;
+    }
+
+    /* Links Azuis no PC */
+    .nav-links li a {
+        color: #003366 !important;
+        font-size: 1rem !important;
+        padding: 10px 0 !important;
+        background: transparent !important;
+    }
+
+    .nav-links li a:hover {
+        color: #FF6600 !important;
+        padding-left: 0 !important; /* Remove o deslize do celular no PC */
+    }
+
+    .hero-content h1 {
+        font-size: 4.5rem !important; /* Título gigante de volta */
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        justify-content: flex-start; /* No PC, empurra o conteúdo para a esquerda */
+    }
+
+    .hero-content {
+        text-align: left; /* 
+        No PC, alinha o texto à esquerda */
+        .container { justify-content: flex-start; }
+    .hero-content { text-align: left; }
+}
+    }
+@media (max-width: 992px) {
+    .galeria-espaco {
+        column-count: 2; /* 2 colunas para telas médias */
+    }
+}
